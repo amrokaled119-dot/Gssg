@@ -1,0 +1,157 @@
+:root {
+    --bg-dark: #050505;
+    --card-bg: rgba(25, 25, 25, 0.8);
+    --accent-blue: #0071e3; /* لون آبل الأزرق الشهير */
+    --accent-green: #34c759;
+    --text-primary: #f5f5f7;
+    --text-secondary: #86868b;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --glass-effect: blur(20px) saturate(180%);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* شريط التقدم */
+.app-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.progress-container {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--accent-blue), #5ac8fa);
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* الحاوية الرئيسية */
+.app-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 80px 20px 40px;
+    min-height: 100vh;
+}
+
+/* التنسيق العام للأقسام */
+.view-section {
+    display: none;
+    animation: fadeIn 0.6s ease-out;
+}
+
+.view-section.active {
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* نمط الكروت (Cards) */
+.brand-identity {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.logo-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: var(--accent-blue);
+    text-shadow: 0 0 20px rgba(0, 113, 227, 0.4);
+}
+
+/* مدخلات الاسم والأزرار */
+input[type="text"] {
+    width: 100%;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 15px;
+    color: white;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    text-align: center;
+    backdrop-filter: var(--glass-effect);
+}
+
+.btn-primary {
+    background-color: var(--accent-blue);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0077ed;
+    transform: scale(1.02);
+}
+
+/* خيارات الأسئلة */
+.options-grid {
+    display: grid;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.option-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.option-card:hover {
+    border-color: var(--accent-blue);
+}
+
+.option-card input {
+    display: none;
+}
+
+/* لوحة النتائج (التقرير الطبي) */
+.certificate-card {
+    background: white;
+    color: #1d1d1f;
+    padding: 30px;
+    border-radius: 20px;
+    margin-top: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    position: relative;
+    border: 8px double #eee;
+}
+
+.cert-header h3 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #1d1d1f;
+}
+
+.hidden { display: none !important; }
